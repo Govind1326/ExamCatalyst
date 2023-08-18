@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Tutorial</title>
+  </head>
+  <body>
+    <p style="cursor: grab">You want to click me??</p>
+    <p id="seconds">You want to click this??</p>
+    <p class="third">You want to click them??</p>
+    <p>You want to click her??</p>
+    <button id="bt">Toggle</button>
+    <div id="go">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque amet,
+      beatae eius earum possimus ratione excepturi molestias in praesentium
+      quibusdam optio voluptate quis quasi ducimus ut placeat perferendis labore
+      porro obcaecati ad pariatur nemo? Tenetur doloribus distinctio omnis
+      praesentium? Expedita, laborum facilis, porro inventore delectus vel ab
+      suscipit qui modi doloremque consequatur, sunt sint commodi nemo saepe
+      officiis ut fuga quaerat voluptas. Reprehenderit at, ipsam, quia itaque
+      iste cupiditate, beatae magnam sint non nemo mollitia ut voluptatum!
+      Saepe, hic ut.
+    </div>
+  </body>
+
+  <script src="../jQuery/code.jquery.com_jquery-3.7.0.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      console.log("you like jQuery!!");
+
+      //   $('p').click(function () {
+      //     console.log('you click on p', this);
+      //     // $(this).hide();
+      //   });
+
+      //   $('p').dblclick(function () {
+      //     console.log('you double click on p', this);
+      //     // $(this).hide();
+      //   });
+
+      //id selector
+      //   $('#second').click();
+
+      //class selector
+      //   $('third').click();
+
+      //all selector
+      //   $('*').click();
+      // --------------------------------------------------------------
+      // Event in jQuery
+
+      // Mouse event= click,dblclick,mouseleave ,mouseenter
+
+      //   $('p').mouseenter(function () {
+      //     console.log('you enter:', this);
+      //     // $(this).hide();
+      //   });
+
+      //   $('p').mouseleave(function () {
+      //     console.log('you leave:', this);
+      //     // $(this).hide();
+      //   });
+
+      // $('p').hover(function () {
+      //     console.log('you hover: ', this);
+      //     // $(this).hide();
+      //   },function(){console.log('Thanks for coming')});
+      // --------------------------------------------------------------
+
+      // Keyboard events= keypressed,keydown,keyup
+      // Form event=submit,blur,focus,change
+      // Document/Window events=load,resize,scroll,unload`
+
+      //demo of onMethod event where we can handle multiple events
+
+      $("p").on({
+        click: function () {
+          console.log("you click on P.");
+        },
+        mouseleave: function () {
+          console.log("mouse leave", this);
+        },
+      });
+
+      //   $('#go').hide(10000,function () {
+      //     console.log("hidden complety");
+
+      //   });
+
+    //   $("#bt").click(function () {
+    //     $("#go").fadeTo(1000, 0.1, function () {
+    //       console.log("show complety");
+    //     });
+    //   });
+
+    // fadeTo,fadein(1000),fadeout(1000),fadetoggle(1000)
+    // slideup(1000),slidedown(1000),slidetoggle(1000)
+    });
+  </script>
+</html>
