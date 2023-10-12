@@ -1,0 +1,37 @@
+<?php
+include './config.php';
+
+if(isset($_POST['updateid'])){
+    $stu_id=$_POST['updateid'];
+
+    $sql="Select * from s_add where id ='$stu_id'";
+    $result=mysqli_query($al,$sql);
+    $response=array();
+    while($row= mysqli_fetch_array($result)){
+        $response=$row;
+    }
+    echo json_encode($response);
+}else{
+    $response['status']=200;
+    $response['message']="Invalid or data not found";
+}
+
+//update query
+
+if(isset($_POST['hiddendata'])){
+    $updatesname    =      $_POST['updatesname'];
+    $updatephone    =      $_POST['updatephone'];
+    $updateemail    =      $_POST['updateemail'];
+    $updaterollno   =      $_POST['updaterollno'];
+    $updategender   =      $_POST['updategender'];
+    $updatecourses  =      $_POST['updatecourses'];
+    $updatesem      =      $_POST['updatesem'];
+    $updatebirthdate =     $_POST['updatebirthdate'];
+    $id             =      $_POST['hiddendata'];
+    $updatesubject  =      $_POST['updatesubject'];
+
+    $sql="update s_add set sname='$updatesname',birthdate='$updatebirthdate',gender='$updategender',email='$updateemail',phone='$updatephone',rollno='$updaterollno',courses='$updatecourses',sem='$updatesem',sub1='$updatesubject[0]',sub2='$updatesubject[1]',sub3='$updatesubject[2]',sub4='$updatesubject[3]',sub5='$updatesubject[4]' where id='$id'";
+ 
+    $result=mysqli_query($al,$sql);
+
+}

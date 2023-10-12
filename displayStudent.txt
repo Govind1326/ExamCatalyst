@@ -1,0 +1,49 @@
+<?php
+include './config.php';
+if(isset($_POST['displaySend'])){
+    
+    $table='<table class="table"  style="width:70%;box-shadow: 2px 3px 5px black;margin:auto;">
+    <thead class="thead-dark">
+    <tr>
+         <th>Sr.No.</th>
+         <th>Name</th>
+         <th>Roll No.</th>
+         <th>Course</th>
+         <th>Sem</th>
+         <th>Operations</th>
+   
+    </tr>
+    </thead>';
+  
+  // <?php
+  $i=1;
+$x=mysqli_query($al,"SELECT * FROM s_add");
+while($y=mysqli_fetch_array($x))
+{
+  $id=$y['id'];
+  $sname=$y['sname'];
+  $rollno=$y['rollno'];
+  $courses=$y['courses'];
+  $sem=$y['sem'];
+  $table.='<tr class="labels" style="font-size:14px;">
+<td>'.$i.'</td>
+<td>'.$sname.'</td>
+<td>'.$rollno.'</td>
+<td>'.$courses.'</td>
+<td>'.$sem.'</td>
+
+<td><button  type="button" class="btn btn-primary"  onclick="getDetails('.$id.');" ><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</button>
+     <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i><a href="deleteStuddemo.php?deleteid='.$id.'"  class="link" style="font-size:14px; color: white; text-decoration: none;"> Delete</a></button>
+     </td>
+
+</tr>';
+$i++;
+ } 
+ $table.='</table>';
+
+  echo "$table";
+}
+
+
+// <!--<a href="updatestud.php?updateroll=<?php // echo $y['rollno'];  ?>
+<!-- "  class="link" style="font-size:14px; color: white; text-decoration: none;">-->
